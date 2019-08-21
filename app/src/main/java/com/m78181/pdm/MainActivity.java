@@ -14,6 +14,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main); //essa activity está associada a activity_main
     }
 
+    public void aula1Click(View view){
+        Intent intent = new Intent(MainActivity.this, Main1Activity.class);
+        startActivity(intent);
+    }
+
     public void aula2Click(View view){
         Intent intent = new Intent(MainActivity.this, Main2Activity.class);
         startActivity(intent);
