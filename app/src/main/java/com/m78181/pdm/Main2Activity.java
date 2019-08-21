@@ -1,8 +1,10 @@
 package com.m78181.pdm;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -14,6 +16,8 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        tempC = findViewById(R.id.txtTempC);
         //A activity está sendo criada
         Log.d(TAG, "onCreate");
     }
@@ -60,9 +64,13 @@ public class Main2Activity extends AppCompatActivity {
         Log.d(TAG, "onDestroy");
     }
 
-    public void calClick(View view){
-            String s = tempC.getText().toString();
+    public void calcClick(View view){
+            String result = String.valueOf((Double.parseDouble(tempC.getText().toString())*9/5) + 32);
+            //String s = tempC.getText().toString();
             //double d = Double.parseDouble(s);
-            Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, Main2p1Activity.class);
+            i.putExtra("temp", result);
+            startActivity(i);
+            //Toast.makeText(this,result,Toast.LENGTH_SHORT).show();
     }
 }
