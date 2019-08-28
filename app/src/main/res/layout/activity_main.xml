@@ -7,10 +7,17 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exercícios de Programação para Dispositivos Móveis"
+        android:textColor="#000000"
+        android:gravity="center"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="aula2Click"
+        android:onClick="aula1Click"
         android:text="AULA 1"/>
 
     <Button
@@ -22,7 +29,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="aula2Click"
+        android:onClick="aula3Click"
         android:text="AULA 3"/>
 
 </LinearLayout>
