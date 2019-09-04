@@ -8,6 +8,33 @@
     tools:context=".Main3Activity"
     >
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickq1"
+        android:text="Questão 1"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickq2"
+        android:text="Questão 2"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickq3"
+        android:text="Questão 3"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickq4"
+        android:text="Questão 4"
+        />
 
 
 </LinearLayout>
