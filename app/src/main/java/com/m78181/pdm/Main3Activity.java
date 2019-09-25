@@ -13,23 +13,23 @@ public class Main3Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
     }
 
-    protected void onClickq1(View view){
-        Intent i = new Intent(this, Main3p1Activity.class);
+    public void OC_Q1(View view){
+        Intent i = new Intent(Main3Activity.this, Main3p1Activity.class);
         startActivity(i);
     }
 
-    protected void onClickq2(){
-        Intent i = new Intent(this, Main3p2Activity.class);
+    public void OC_Q2(View view){
+        Intent i = new Intent(Main3Activity.this, Main3p2Activity.class);
         startActivity(i);
     }
 
-    protected void onClickq3(){
-        Intent i = new Intent(this, Main3p3Activity.class);
+    public void OC_Q3(View view){
+        Intent i = new Intent(Main3Activity.this, Main3p3Activity.class);
         startActivity(i);
     }
 
-    protected void onClickq4(){
-        Intent i = new Intent(this, Main3p4Activity.class);
+    public void OC_Q4(View view){
+        Intent i = new Intent(Main3Activity.this, Main3p4Activity.class);
         startActivity(i);
     }
 

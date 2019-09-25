@@ -11,28 +11,28 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClickq1"
+        android:onClick="OC_Q1"
         android:text="Questão 1"
         />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClickq2"
+        android:onClick="OC_Q2"
         android:text="Questão 2"
         />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClickq3"
+        android:onClick="OC_Q3"
         android:text="Questão 3"
         />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClickq4"
+        android:onClick="OC_Q4"
         android:text="Questão 4"
         />
 
