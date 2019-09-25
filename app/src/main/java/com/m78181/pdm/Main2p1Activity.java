@@ -3,6 +3,7 @@ package com.m78181.pdm;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 
 public class Main2p1Activity extends AppCompatActivity {
@@ -13,6 +14,7 @@ public class Main2p1Activity extends AppCompatActivity {
 
         Intent i = getIntent();
         String valor = i.getStringExtra("temp");
-
+        TextView t = findViewById(R.id.resultTemp);
+        t.setText(t.getText() + valor + "Fº");
     }
 }

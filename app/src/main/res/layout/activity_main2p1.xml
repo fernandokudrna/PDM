@@ -10,9 +10,19 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:text="DIGITE A TEMPERATURA EM CELSIUS"
+        android:text="Conversão de Celsius para Fahrenheit"
         android:textSize="20sp"
         android:textColor="#000000"
+        android:gravity="center"
         android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/resultTemp"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:gravity="center"
         />
     </LinearLayout>

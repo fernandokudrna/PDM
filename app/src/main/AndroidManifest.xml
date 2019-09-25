@@ -24,6 +24,7 @@
         <activity android:name=".Main3p1Activity" />
         <activity android:name=".Main4Activity" />
         <activity android:name=".Main3Activity" />
+        <activity android:name=".Main2p1Activity" />
         <activity android:name=".Main2Activity" />
         <activity android:name=".MainActivity">
             <intent-filter>
