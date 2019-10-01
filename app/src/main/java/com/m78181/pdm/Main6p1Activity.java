@@ -27,7 +27,7 @@ public class Main6p1Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main6p1);
 
         Intent intent = getIntent();
         String nome =  intent.getStringExtra("nome");

@@ -27,7 +27,7 @@ public class Main6Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main6);
 
     }
 
@@ -56,8 +56,6 @@ public class Main6Activity extends AppCompatActivity {
                         Mensagem(strArray[position], view);
                     }
                 });
-
-
                 return true;
         }
         switch (item.getItemId()){
@@ -79,7 +77,7 @@ public class Main6Activity extends AppCompatActivity {
     }
 
     public void Mensagem(String msg, View view) {
-        Intent intent = new Intent(this, Main2Activity.class);
+        Intent intent = new Intent(this, Main6p1Activity.class);
         intent.putExtra("nome", msg);
         startActivity(intent);
     }
