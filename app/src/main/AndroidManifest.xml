@@ -14,7 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main6p1Activity"></activity>
+        <activity android:name=".Main8Activity_adapter"></activity>
+        <activity android:name=".Main8Activity" />
+        <activity android:name=".MainRevisaoActivity" />
+        <activity android:name=".Main7Activity" />
+        <activity android:name=".Main6p1Activity" />
         <activity android:name=".Main6Activity" />
         <activity android:name=".AulaEx6p1Activity" />
         <activity android:name=".Aula6ExActivity" />
