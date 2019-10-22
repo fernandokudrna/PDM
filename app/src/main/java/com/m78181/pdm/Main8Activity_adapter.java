@@ -2,50 +2,44 @@ package com.m78181.pdm;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 
 public class Main8Activity_adapter extends SimpleAdapter{
+    private final Context context;
+    private final int textViewResourceId;
+    private List<Map<String,Object>> memoria;
 
-    private int textViewResourceId;
-    private Object[] objects;
-
-    public Main8ActivityAdapter(Context context, int textViewResourceId, Object[] objects){
-        super(context, textViewResourceId, objects);
-        this.textViewResourceId = textViewResourceId;
-        this.objects = objects;
-    }
-    private View getCustomView(int position, View convertView, ViewGroup parent){
-        LayoutInflater layoutInflater = ((Activity)super.getContext()).getLayoutInflater();
-        View row = layoutInflater.inflate (this.textViewResourceId, parent, false);
-
-        TextView tMat = (TextView) row.findViewById(R.id.revisaoMatriculaLista);
-        TextView tNome = (TextView) row.findViewById(R.id.revisaoNomeLista);
-        TextView tFoto = (TextView) row.findViewById(R.id.revisaoFotoLista);
-
-
-        return row;
+    Main8Activity_adapter(Context context, List<Map<String, Object>> data, int resource, String[] from, int[] to) {
+        super(context, data, resource, from, to);
+        this.memoria = data;
+        this.context = context;
+        this.textViewResourceId = resource;
     }
 
     @Override
+    @RequiresApi(api = Build.VERSION_CODES.P)
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view= super.getView(position, convertView, parent);
-        return view;
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        HashMap<String, Object> item = list.get(position);
-
+        LayoutInflater layoutInflater = ((Activity)context).getLayoutInflater();
+        View row = layoutInflater.inflate(this.textViewResourceId, parent, false);
+        if(position != 1 && position < memoria.size()){
+            TextView tvMatricula = row.findViewById(R.id.revisaoMatriculaLista);
+            TextView tvNome = row.findViewById(R.id.revisaoNomeLista);
+            ImageView ivFoto = row.findViewById(R.id.revisaoFotoLista);
+            tvMatricula.setText((memoria.get(position).get("Matricula").toString()));
+            tvNome.setText((memoria.get(position).get("Nome").toString()));
+            ivFoto.setImageBitmap(((Bitmap) memoria.get(position).get("Foto")));
+        }
+        return row;
     }
 }

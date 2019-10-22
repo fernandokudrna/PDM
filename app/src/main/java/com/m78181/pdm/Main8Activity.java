@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -22,19 +23,19 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class Main8Activity extends AppCompatActivity {
     private Spinner spinnerEstado;
     private Spinner spinnerCidade;
     private final int TIRAR_FOTO = 0;
-    private ListView listAlunos;
     private TextView matricula, nome, email;
     private ImageView captura;
-    private Button capturar;
-    private Button add;
-    private ArrayList<ArrayList<Object>> memoria = new ArrayList<>();
+    private Main8Activity_adapter adapter;
+    private ArrayList<Map<String, Object>> memoria = new ArrayList<>();
     private String[] labels =  {"Foto", "Matricula", "Nome"};
-    private
+    private int[] views = {R.id.revisaoFotoLista, R.id.revisaoMatriculaLista, R.id.revisaoNomeLista};
 
     final String [] estados = {"Selecione o estado", "Rio Grande do Sul", "Santa Catarina", "Paraná", "São Paulo"};
     final String [][] cidades = {
@@ -49,38 +50,43 @@ public class Main8Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main8);
 
+        ListView listAlunos = findViewById(R.id.listaEstudantes);
         spinnerCidade.findViewById(R.id.revisaoCidade);
         spinnerEstado.findViewById(R.id.revisaoEstado);
-        listAlunos.findViewById(R.id.listaEstudantes);
-        capturar.findViewById(R.id.revisaoCapture);
-        matricula.findViewById(R.id.revisaoMatricula);
-        nome.findViewById(R.id.revisaoNome);
-        email.findViewById(R.id.revisaoEmail);
-        captura.findViewById(R.id.revisaofotoCaptura);
-        add.findViewById(R.id.revisaoAdd);
+        captura.findViewById(R.id.revisaoCapture);
+        matricula = findViewById(R.id.revisaoMatricula);
+        nome = findViewById(R.id.revisaoNome);
+        email = findViewById(R.id.revisaoEmail);
+        captura = findViewById(R.id.revisaofotoCaptura);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,estados);
-        spinnerEstado.setAdapter(adapter);
+        ArrayAdapter<String> adapter_cam = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,estados);
+        spinnerEstado.setAdapter(adapter_cam);
         spinnerEstado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View SelectedItemView, int position, long id){
-                ArrayAdapter<String> adapter_lista = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, R.id.revisaoCidade, cidades[position]);
+                ArrayAdapter<String> adapter_lista = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, cidades[position]);
                 spinnerCidade.setAdapter(adapter_lista);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView){
-                //spinnerCidade.setAdapter(null);
+                spinnerCidade.setAdapter(null);
             }
         });
-        Main8Activity_adapter adaptermain8 =
-                new Main8Activity_adapter(this, dados(), R.layout.activity_main8_adapter, labels, views, memoria.toArray());
-        listAlunos.setAdapter(adaptermain8);
+        adapter = new Main8Activity_adapter(this, memoria, R.layout.activity_main8_adapter, labels, views);
+        listAlunos.setAdapter(adapter);
         listAlunos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                HashMap<String, Object> item = list.get(position);
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Map<String, Object> item = memoria.get(position);
+                Intent intent = new Intent(getApplicationContext(), Main8p1Activity.class);
+                intent.putExtra("Matricula", (String) item.get("Matricula"));
+                intent.putExtra("Nome", (String) item.get("Nome"));
+                intent.putExtra("Email", (String) item.get("Email"));
+                intent.putExtra("Estado", (String) item.get("Estado"));
+                intent.putExtra("Cidade", (String) item.get("Cidade"));
                 //abre nova atividade e passa os dados do item selecionado
+                startActivity(intent);
             }
         });
     }
@@ -110,26 +116,28 @@ public class Main8Activity extends AppCompatActivity {
     }
 
     @Override
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == TIRAR_FOTO && resultCode == RESULT_OK) {
             ImageView iv = findViewById(R.id.revisaofotoCaptura);
-            iv.setImageBitmap((Bitmap) data.getExtras().get("data"));
+            iv.setImageBitmap((Bitmap) Objects.requireNonNull(data.getExtras()).get("data"));
+            iv.setScaleType(ImageView.ScaleType.FIT_XY);
         }
     }
 
     public void addAluno(View view){
-        ArrayList<Object> dados = new ArrayList<>();
-        dados.add(matricula);
-        dados.add(nome);
-        dados.add(email);
-        dados.add(spinnerEstado.getSelectedItem());
-        dados.add(spinnerCidade.getSelectedItem());
-        dados.add(captura);
-
+        final Map<String,Object> dados = new HashMap<>();
+        dados.put("Matricula", matricula.getText().toString());
+        dados.put("Nome", nome.getText().toString());
+        dados.put("Email", email.getText().toString());
+        dados.put("Estado", spinnerEstado.getSelectedItem());
+        dados.put("Cidade", spinnerCidade.getSelectedItem());
+        BitmapDrawable bd = (BitmapDrawable)captura.getDrawable();
+        dados.put("Foto", bd.getBitmap());
         memoria.add(dados);
 
-        listAlunos.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
 
