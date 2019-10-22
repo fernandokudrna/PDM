@@ -55,4 +55,10 @@
         android:onClick="aula7Click"
         android:text="AULA 7"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="aulaDesafioClick"
+        android:text="AULA 8 - DESAFIO"/>
+
 </LinearLayout>
