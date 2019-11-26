@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/aula10_temperatura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="aula10_temperatura"/>
+    <TextView
+        android:id="@+id/aula10_umidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="aula10_umidade"/>
+    <TextView
+        android:id="@+id/aula10_orvalho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="aula10_orvalho"/>
+    <TextView
+        android:id="@+id/aula10_pressao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="aula10_pressao"/>
+    <TextView
+        android:id="@+id/aula10_velocidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="aula10_velocidade_do_vento"/>
+    <TextView
+        android:id="@+id/aula10_direcao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="aula10_lista_direcao_do_vento"/>
+    <TextView
+        android:id="@+id/aula10_datahora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="aula10_data_hora"/>
+
+</LinearLayout>

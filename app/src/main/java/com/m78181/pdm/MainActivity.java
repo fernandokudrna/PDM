@@ -57,4 +57,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void aula10Click(View view){
+        Intent intent = new Intent (MainActivity.this, Main10Activity.class);
+        startActivity(intent);
+    }
+
 }
