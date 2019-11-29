@@ -1,12 +1,12 @@
 package com.m78181.pdm;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 
-public class Main2p1Activity extends AppCompatActivity {
+public class Main2p1Activity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

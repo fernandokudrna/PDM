@@ -1,13 +1,11 @@
 package com.m78181.pdm;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
-import android.webkit.WebView;
-import android.widget.EditText;
-import android.widget.Toast;
 
-public class Main1Activity extends AppCompatActivity {
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.EditText;
+
+public class Main1Activity extends Activity {
     final String TAG = "App";
     private EditText tempC;
 

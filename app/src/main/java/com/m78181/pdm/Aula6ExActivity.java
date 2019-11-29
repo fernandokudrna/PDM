@@ -1,7 +1,7 @@
 package com.m78181.pdm;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,7 +13,7 @@ import android.widget.Toast;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class Aula6ExActivity extends AppCompatActivity {
+public class Aula6ExActivity extends Activity {
     private ListView meuListView;
     private Spinner meuSpinner;
     String [] values = {"Luz","Agua","Telefone","Internet","Aluguel", "Academia"};

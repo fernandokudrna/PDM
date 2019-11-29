@@ -1,8 +1,8 @@
 package com.m78181.pdm;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +22,7 @@ import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
-public class Main10Activity extends AppCompatActivity {
+public class Main10Activity extends Activity {
 
     private JSONArray array;
     private double[] avg = {0.0,0.0,0.0,0.0,0.0};

@@ -1,7 +1,7 @@
 package com.m78181.pdm;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,11 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.Arrays;
-
-public class Main6p1Activity extends AppCompatActivity {
+public class Main6p1Activity extends Activity {
 
     String [] estados = {"Escolha o estado","RS","SC","PR"};
     String [] estado_RS = {"Santa Cruz do Sul","Porto Alegre","Caxias do Sul"};

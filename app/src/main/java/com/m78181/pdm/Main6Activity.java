@@ -1,7 +1,7 @@
 package com.m78181.pdm;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,19 +16,33 @@ import android.widget.Toast;
 import java.util.Arrays;
 import java.util.List;
 
-public class Main6Activity extends AppCompatActivity {
+public class Main6Activity extends Activity {
     String [] strArray = {"Dave Mustaine", "Ron McGovney", "Tom Araya", "Kerry King","Dave Lombardo",
                             "David Ellefson","James Hetfield","Lars Ulrich","Kiko Loureiro","Marty Friedman",
                             "Rob Trujillo","Joey Belladonna","Scott Ian","Dirk Verbeuren","Dan Lilker",
                             "Cliff Burton","Jason Newsted", "Jeff Hannemann"};
-    private TextView txt;
     private ListView listView;
+    Spinner spinner;
+    String [] categoria_despesa = {"Passagem", "Alimentação", "Estadia", "Outros"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main6);
+        spinner = findViewById(R.id.spinner);
+        listView = findViewById(R.id.listView);
 
+        ArrayAdapter<CharSequence> adapter_sp = ArrayAdapter.createFromResource(this, R.array.categoria_gasto,android.R.layout.simple_spinner_item);
+        spinner.setAdapter(adapter_sp);
+
+        final ArrayAdapter<String> adapter_lst = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Arrays.asList(categoria_despesa));
+        listView.setAdapter(adapter_lst);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Mensagem(categoria_despesa[position]);
+            }
+        });
     }
 
     //Criação do Menu
@@ -53,7 +67,7 @@ public class Main6Activity extends AppCompatActivity {
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Mensagem(strArray[position], view);
+                        Mensagem(strArray[position]);
                     }
                 });
                 return true;
@@ -76,10 +90,8 @@ public class Main6Activity extends AppCompatActivity {
         return false;
     }
 
-    public void Mensagem(String msg, View view) {
-        Intent intent = new Intent(this, Main6p1Activity.class);
-        intent.putExtra("nome", msg);
-        startActivity(intent);
+    public void Mensagem(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
 }

@@ -1,9 +1,9 @@
 package com.m78181.pdm;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
-public class Main7Activity extends AppCompatActivity {
+public class Main7Activity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
