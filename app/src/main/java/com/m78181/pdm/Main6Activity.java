@@ -10,11 +10,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class Main6Activity extends Activity {
     String [] strArray = {"Dave Mustaine", "Ron McGovney", "Tom Araya", "Kerry King","Dave Lombardo",
@@ -55,37 +53,24 @@ public class Main6Activity extends Activity {
 
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.item1:
-                Toast.makeText(this, "Item", Toast.LENGTH_LONG).show();
-                //Abre o listactivity no item do menu
-                //txt = findViewById(R.id.txt1);
-                listView = findViewById(R.id.listView);
-
-                List<String> arraylist = Arrays.asList(strArray);
-                ArrayAdapter<String> adapter_ls = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arraylist);
-                listView.setAdapter(adapter_ls);
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Mensagem(strArray[position]);
-                    }
-                });
+            case R.id.itemNovo:
+                Toast.makeText(this, "Novo", Toast.LENGTH_LONG).show();
                 return true;
         }
         switch (item.getItemId()){
-            case R.id.item2:
-                Toast.makeText(this, "Item 1", Toast.LENGTH_LONG).show();
+            case R.id.itemSalvar:
+                Toast.makeText(this, "Salvar", Toast.LENGTH_LONG).show();
                 return true;
         }
         switch (item.getItemId()){
-            case R.id.item3:
-                Toast.makeText(this, "Item 2", Toast.LENGTH_LONG).show();
+            case R.id.itemAdicionar:
+                Toast.makeText(this, "Adicionar", Toast.LENGTH_LONG).show();
                 return true;
         }
         switch (item.getItemId()){
-            case R.id.item4:
-                Toast.makeText(this, "Item 3", Toast.LENGTH_LONG).show();
-                return true;
+            case R.id.itemLista:
+                Intent intent = new Intent(this, Main6p1Activity.class);
+                startActivity(intent);
         }
         return false;
     }
