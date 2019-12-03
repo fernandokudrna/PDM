@@ -28,8 +28,6 @@
         <activity android:name=".Main7Activity" />
         <activity android:name=".Main6p1Activity" />
         <activity android:name=".Main6Activity" />
-        <activity android:name=".AulaEx6p1Activity" />
-        <activity android:name=".Aula6ExActivity" />
         <activity android:name=".Main3p4Activity" />
         <activity android:name=".Main3p3Activity" />
         <activity android:name=".Main3p2Activity" />

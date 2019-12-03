@@ -16,9 +16,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.RequiresApi;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -49,9 +47,8 @@ public class Main8Activity extends Activity {
         setContentView(R.layout.activity_main8);
 
         ListView listAlunos = findViewById(R.id.listaEstudantes);
-        spinnerCidade.findViewById(R.id.revisaoCidade);
-        spinnerEstado.findViewById(R.id.revisaoEstado);
-        captura.findViewById(R.id.revisaoCapture);
+        spinnerCidade = findViewById(R.id.revisaoCidade);
+        spinnerEstado = findViewById(R.id.revisaoEstado);
         matricula = findViewById(R.id.revisaoMatricula);
         nome = findViewById(R.id.revisaoNome);
         email = findViewById(R.id.revisaoEmail);
