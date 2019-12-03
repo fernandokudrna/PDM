@@ -12,14 +12,12 @@ import android.widget.TextView;
 
 public class Main6p1Activity extends Activity {
 
-    String [] estados = {"Escolha o estado","RS","SC","PR"};
-    String [] estado_RS = {"Santa Cruz do Sul","Porto Alegre","Caxias do Sul"};
-    String [] estado_SC = {"Florianopólis","Chapecó","Blumenau"};
-    String [] estado_PR = {"Curitiba","Londrina","Cascavel"};
-    String [] estado0 = {};
-    ArrayAdapter<String> adaptador;
+    final String [] estados = {"RS","SC","PR"};
+    final String[][] cidades = {{"Santa Cruz do Sul","Porto Alegre","Caxias do Sul"},
+                         {"Florianopólis","Chapecó","Blumenau"},
+                         {"Curitiba","Londrina","Cascavel"}};
 
-    ListView opcoes;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,45 +27,26 @@ public class Main6p1Activity extends Activity {
         Intent intent = getIntent();
         String nome =  intent.getStringExtra("nome");
 
-        TextView name = (TextView) findViewById(R.id.textView1);
+        final TextView name = (TextView) findViewById(R.id.textView1);
 
         name.setText(nome);
 
         Spinner estado = (Spinner) findViewById(R.id.estado);
+        listView = findViewById(R.id.listviewCidades);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,estados);
-
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,estados);
         estado.setAdapter(adapter);
-
         estado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selecionado = estados[position];
-                if(selecionado.equals("Escolha o estado")){
-                    opcoes = (ListView) findViewById(R.id.listView);
-                    adaptador = new ArrayAdapter<String>(Main6p1Activity.this,android.R.layout.simple_list_item_1,estado0);
-                    opcoes.setAdapter(adaptador);
-                }
-                if(selecionado.equals("RS")){
-                    opcoes = (ListView) findViewById(R.id.listView);
-                    adaptador = new ArrayAdapter<String>(Main6p1Activity.this,android.R.layout.simple_list_item_1,estado_RS);
-                    opcoes.setAdapter(adaptador);
-                }
-                if(selecionado.equals("SC")){
-                    opcoes = (ListView) findViewById(R.id.listView);
-                    adaptador = new ArrayAdapter<String>(Main6p1Activity.this,android.R.layout.simple_list_item_1,estado_SC);
-                    opcoes.setAdapter(adaptador);
-                }
-                if(selecionado.equals("PR")){
-                    opcoes = (ListView) findViewById(R.id.listView);
-                    adaptador = new ArrayAdapter<String>(Main6p1Activity.this,android.R.layout.simple_list_item_1,estado_PR);
-                    opcoes.setAdapter(adaptador);
-                }
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                ArrayAdapter<String> adapter_lst =
+                        new ArrayAdapter<>(getApplicationContext(), R.layout.list_layout, R.id.textViewList, cidades[position]);
+                listView.setAdapter(adapter_lst);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                listView.setAdapter(null);
             }
         });
     }

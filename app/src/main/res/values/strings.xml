@@ -4,7 +4,7 @@
         <item>Alimentação</item>
         <item>Combustivel</item>
         <item>Transporte</item>
-        <item>Hospedagem</item>
+        <item>Estadia</item>
         <item>Outros</item>
     </string-array>
 </resources>

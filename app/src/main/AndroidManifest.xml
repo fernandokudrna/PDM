@@ -14,7 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main10ActivityAdapter"/>
+        <activity android:name=".Main7p2ActivityAdapter"></activity>
+        <activity android:name=".Main7p1ActivityAdapter" />
+        <activity android:name=".Main7p2Activity" />
+        <activity android:name=".Main7p1Activity" />
+        <activity android:name=".Main6p2Activity" />
+        <activity android:name=".Main10ActivityAdapter" />
         <activity android:name=".Main10Activity" />
         <activity android:name=".Main8p1Activity" />
         <activity android:name=".Main8Activity_adapter" />
@@ -33,6 +38,7 @@
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main2p1Activity" />
         <activity android:name=".Main2Activity" />
+        <activity android:name=".Main1Activity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -15,11 +15,8 @@ import android.widget.Toast;
 import java.util.Arrays;
 
 public class Main6Activity extends Activity {
-    String [] strArray = {"Dave Mustaine", "Ron McGovney", "Tom Araya", "Kerry King","Dave Lombardo",
-                            "David Ellefson","James Hetfield","Lars Ulrich","Kiko Loureiro","Marty Friedman",
-                            "Rob Trujillo","Joey Belladonna","Scott Ian","Dirk Verbeuren","Dan Lilker",
-                            "Cliff Burton","Jason Newsted", "Jeff Hannemann"};
-    private ListView listView;
+
+    ListView listView;
     Spinner spinner;
     String [] categoria_despesa = {"Passagem", "Alimentação", "Estadia", "Outros"};
 
@@ -27,6 +24,7 @@ public class Main6Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main6);
+
         spinner = findViewById(R.id.spinner);
         listView = findViewById(R.id.listView);
 
